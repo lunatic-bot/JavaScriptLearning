@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Objects</title>
+</head>
+<body>
+    <script>
+        // let product = {
+        //     company: 'Mango',
+        //     price: 861,
+        //     item_name: 'T-shirt',
+        // };
+
+        // dot notation
+        // console.log(product);
+        // console.log(product.company);
+        // console.log(product.price);
+        // product.company = 'Banana';
+        // console.log(product.company);
+
+        // bracket notation
+        // console.log(product['company']);
+
+        // delete product.company;
+        // delete product['company'];
+        // console.log(product);
+
+
+
+        let product = {
+            company: 'Mango',
+            price: 861,
+            item_name: 'T-shirt',
+            displayPrice: function(){
+                console.log(`Price of the product is ${this.price}`)
+            }
+        };
+
+        product.displayPrice();
+    </script>
+</body>
+</html>
