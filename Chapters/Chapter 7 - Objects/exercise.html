@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Object Exercise</title>
+</head>
+<body>
+    <script>
+        let product = {
+            name: 'Shirt',
+            company: 'ExFashion',
+            price: 3000,
+            'delivery-time': '24 Hrs',
+        }
+
+        console.log('Delivery time : ', product['delivery-time'])
+
+        let obj1 = {val : 500};
+        let obj2 = obj1;
+        console.log(`obj1 : ${obj1.val}, obj2 : ${obj2.val}`)
+        obj1.val = 1000;
+        console.log(`obj1 : ${obj1.val}, obj2 : ${obj2.val}`)
+
+        // destructuring
+        let completeStatus = {
+            message: 'good job',
+            status: 'complete',
+        }
+
+        let {message, status} = completeStatus;
+        console.log(`msg: ${message}, status:${status}`);
+
+        let product1 = {
+            name: 'Shirt',
+            company: 'ExFashion',
+            price: 3000,
+            'delivery-time': '24 Hrs',
+        }
+        let product2 = {
+            name: 'Shirt',
+            company: 'ExFashion',
+            price: 3000,
+            'delivery-time': '24 Hrs',
+        }
+
+        function compareProduct(product1, product2) {
+            if (product1.company == product2.company && product1.name == product2.name && product1.price == product2.price) {
+                return 'The products are same.';
+            } else {
+                return 'The products are different.';
+            }
+        }
+
+        function compareProduct(product1, product2) {
+            if (typeof product1 !== 'object' || typeof product1 !== 'object') {
+                console.warn('Parameters passed are not object.');
+                return false;
+            }
+            
+            if (product1 == product2) {
+                return true;
+            } else {
+                return false;
+            }
+
+            if (product1.company == product2.company && product1.name == product2.name && product1.price == product2.price) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        console.log(compareProduct(product1, ''));
+        console.log(compareProduct(product1, product1));
+        console.log(compareProduct(product1, product2));
+    </script>
+</body>
+</html>
