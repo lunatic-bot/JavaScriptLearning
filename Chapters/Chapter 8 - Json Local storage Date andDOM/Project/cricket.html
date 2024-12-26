@@ -2,39 +2,37 @@
 <html lang="en">
 <head>
     <title>Cricket</title>
-    <style>
-        body{
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="cricket.css">
 </head>
 <body>
     <h1>Bat Ball Stump game</h1>
-    <button onclick="let computerChoice = generateComputerChoice();
+
+    <button class="choice-button" onclick="let computerChoice = generateComputerChoice();
     let resultMsg = getResult('Bat', computerChoice);
     showResult('Bat', computerChoice, resultMsg)
     // alert(`You have chosen Bat. Computer Choice is ${computerChoice} and ${resultMsg}`);
-    
-    
-    ">Bat</button>
+    "><img src="images/bat.png" alt="Bat Image" class="choice-image"></button>
 
-    <button onclick="computerChoice = generateComputerChoice();
+    <button class="choice-button" onclick="computerChoice = generateComputerChoice();
     resultMsg = getResult('Ball', computerChoice);
     showResult('Ball', computerChoice, resultMsg)
     // alert(`You have chosen Ball. Computer Choice is ${computerChoice} and ${resultMsg}`);
-    
-    
-    ">Ball</button>
-    <button onclick="computerChoice = generateComputerChoice();
+    "><img src="images/ball.png" alt="Ball Image" class="choice-image"></button>
+
+    <button class="choice-button" onclick="computerChoice = generateComputerChoice();
     resultMsg = getResult('Stump', computerChoice);
     showResult('Stump', computerChoice, resultMsg)
     // alert(`You have chosen Stump. Computer Choice is ${computerChoice} and ${resultMsg}`);
-    
-    
-    ">Stump</button>
+    "><img src="images/stump.png" alt="Stump Image" class="choice-image"></button>
+
+
+    <h3 id="user-move"></h3>
+    <h3 id="computer-move"></h3>
+    <h3 id="result"></h3>
+    <h3 id="score"></h3>
 
     <button onclick="localStorage.clear()
-    resetScore( )
+    resetScore()
     ">Reset Game</button>
 
     <script>
@@ -49,8 +47,9 @@
             };
 
             score.displayScore = function(){
-                return `Won:${score.win}, Lost:${score.lost}, Tie:${score.tie}`;
+                return `Score: Won: ${score.win}, Lost: ${score.lost}, Tie: ${score.tie}`;
             }
+            showResult();
         };
 
         
@@ -119,10 +118,22 @@
 
         function showResult(userMove, computerMove, resultMsg){
             // console.log(score)
-            localStorage.setItem('Score', JSON.stringify(score))
-            alert(`You have chosen ${userMove}. Computer Choice is ${computerMove} 
-            ${resultMsg}
-            ${score.displayScore()}`);
+            localStorage.setItem('Score', JSON.stringify(score));
+
+            document.querySelector('#user-move').innerText = 
+                userMove !== undefined ? `You have chosen ${userMove}` : '';
+
+            document.querySelector('#computer-move').innerText = 
+                computerMove !== undefined ? `Computer Choice is ${computerMove}` : '';
+
+            document.querySelector('#result').innerText = 
+                resultMsg || '';
+
+            document.querySelector('#score').innerText = score.displayScore();
+
+            // alert(`You have chosen ${userMove}. Computer Choice is ${computerMove} 
+            // ${resultMsg}
+            // ${score.displayScore()}`);
         }
     </script>
 </body>
