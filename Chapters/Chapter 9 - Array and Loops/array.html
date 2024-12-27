@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Array</title>
+</head>
+<body>
+    <script>
+        let myArray = [1, 'Coding', null, 
+            true, {likes: '1 million'}];
+        // console.log(myArray);
+        // console.log(myArray[4]);
+
+        // console.log(Array.isArray(myArray));
+        // console.log(myArray.length);
+        // add to end
+        // myArray.push(100);
+        // console.log(myArray);
+        // // remove from end
+        // let val = myArray.pop();
+        // console.log(val)
+        // console.log(myArray);
+
+
+
+        // add to begining
+        // myArray.push(100);
+        // console.log(myArray);
+        // remove from end
+        // let val = myArray.pop();
+        // console.log(val)
+        // console.log(myArray);
+
+
+
+        // splice
+        // console.log(myArray);
+        // myArray.splice(1,2)
+        // console.log(myArray);
+
+        // console.log(myArray.toString());
+
+        let arr = [9,8,100,5,7,6];
+        console.log(arr);
+        // When you use the sort() method in JavaScript, it converts the elements of the array to strings and then compares their sequences of UTF-16 code units values. This is why you’re seeing [100, 5, 6, 7, 8, 9] when you expect [5, 6, 7, 8, 9, 100]
+        arr.sort((a, b) => a - b);
+        console.log(arr);
+
+
+        console.log(arr.valueOf());
+
+        let arr2 = arr;
+        arr2[0] = 99;
+        console.log(arr);
+
+
+        let [a,b,c,d] = arr;
+        console.log(a + ' ' + b +' ' + c + ' ' + d);
+    </script>
+</body>
+</html>
