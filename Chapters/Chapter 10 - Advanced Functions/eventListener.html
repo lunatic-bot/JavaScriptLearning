@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Listner</title>
+</head>
+<body>
+    <button id="my-btn">Click Me</button>
+
+    <script>
+        // event listner
+
+        let btnElement = document.querySelector('#my-btn');
+
+        let behaviour = event => console.log('I am clicked.');
+        btnElement.addEventListener('click', behaviour);
+
+        let printDate = event => console.log(`Current date: ${new Date()}`);
+        btnElement.addEventListener('click', printDate);
+
+
+        // remove event listner
+        btnElement.removeEventListener('click', behaviour)
+
+    </script>
+</body>
+</html>

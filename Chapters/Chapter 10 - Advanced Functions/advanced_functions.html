@@ -1,0 +1,119 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <title>Advanced Functions</title>
+ </head>
+ <body>
+    <script>
+        //annonymous function
+        // let sum = function (num1, num2){
+        //     return num1 + num2
+        // };
+        // let newSum = sum;
+        // console.log(sum(4,5));
+        // console.log(newSum(4,5));
+
+
+        // ((4 + 5) + 7)
+        // let sumThreeNumbers = function(num1, num2, num3, sumTwoNumbers){
+        //     let sum1 = sumTwoNumbers(num1, num2);
+        //     return sumTwoNumbers(sum1, num3);
+        // }
+
+        // // passing function
+        // console.log(sumThreeNumbers(4,5,6, sum));
+        // console.log(sumThreeNumbers);
+        // console.log(typeof sumThreeNumbers);
+
+
+
+        // Arrow functions - 
+        // let sum = (num1, num2) => {
+        //     return num1 + num2;
+        // }
+
+        // console.log(sum(10,20)); 
+
+        // if the function takes only one argument, we can write it like this
+        // square - 
+        // let square = (num) => {
+        //     return num*num;
+        // }
+        // console.log(square(20)); 
+
+        // if the function definition is one line, we can write it like this
+        // let sum2 = (num1, num2) => num1 + num2;
+        // let square = num => num * num;
+        // console.log(square(20)); 
+
+
+
+
+        // setTimeOut and setInterval, 2000 is in miliseconds
+
+        // setTimeout(function(){
+        //     console.log('It is morning, wake up');
+        // }, 2000);
+
+      //   let alarm = () => console.log(`It is morning time, wake up. ${new Date()}`);
+        // do not use paranthesis as we are passing function not calling it
+        // let timerId = setTimeout(alarm, 5000);
+        // console.log(`Alarm set with timer id: ${timerId}`);
+
+        // // cancle timer before timeout
+        // clearTimeout(timerId);
+
+        // setInterval
+
+      //   let intervalId = setInterval(alarm, 1000);
+        // clearInterval(intervalId);
+      //   setTimeout(() => clearInterval(intervalId), 5000);
+
+
+
+      // for each loop
+      let foods = ['bread', 'rice', 'meat', 'pizza'];
+
+      // foods.forEach(function(food) {
+      //    console.log(food);
+      // });
+
+      // foods.forEach((food, index) => console.log(food, index));
+
+      // return inside for each works as continue
+      // foods.forEach(function(food) {
+      //    if (food === 'meat'){
+      //       return;
+      //    }
+      //    console.log(food);
+      // });
+      
+
+      // Array methods (Filter and map) - 
+      
+      let arr = [1,2,3,4,5,6,7,8,9,10];
+      // let odds = arr.filter((num, index) => {
+      //    if (num % 2 === 1){
+      //       return true;
+      //    } else {
+      //       return false;
+      //    }
+      // })
+
+      // let newOdds = arr.filter((num, index) => num % 2 === 1);
+
+      // console.log(odds);
+      // console.log(newOdds);
+
+
+      let squares = arr.map((num) => num * num);
+      console.log(squares);
+
+
+
+
+
+
+    </script>
+ </body>
+ </html>
