@@ -1,28 +1,54 @@
-let itemsContainerElement = document.querySelector('.items-container');
+let bagItems;
 
-let item = {
-    item_image: 'images/1.jpg',
-    rating: {
-        stars: 4.5,
-        noOfReviews: 1400,
-    },
-    company_name: 'Carlton London',
-    item_name: 'Rhodium-Plated CZ Floral Studs',
+onLoad();
 
+function onLoad(){
+    let bagItemsStr = localStorage.getItem('bagItems');
+    bagItems = bagItemsStr ? JSON.parse(bagItemsStr) : '';
+    displayItemsOnHomePage();
+    displayBagIcon(); 
 }
 
-itemsContainerElement.innerHTML = `
-<div class="item-container">
-    <img class="item-image" src="${item.item_image}" alt="item image">
-    <div class="rating">
-        ${item.rating.stars} ⭐ | ${item.rating.noOfReviews}
-    </div>
-    <div class="company-name"></div>
-    <div class="item-name"></div>
-    <div class="price">
-        <span class="current-price">Rs 606</span>
-        <span class="original-price">Rs 1045</span>
-        <span class="discount">(42% OFF)</span>
-    </div>
-    <button class="btn-add-bag">Add to Bag</button>
-</div>`;
+
+function addToBag(itemId){
+     bagItems.push(itemId);
+     localStorage.setItem('bagItems', JSON.stringify(bagItems));
+     displayBagIcon();
+}
+
+function displayBagIcon(){
+    let bagItemCountElement = document.querySelector('.bag-item-count');
+    if (bagItems.length > 0){
+        bagItemCountElement.style.visibility = 'visible'; 
+        bagItemCountElement.innerText = bagItems.length;
+    } else {
+        bagItemCountElement.style.visibility = 'hidden'; 
+    }
+}
+
+function displayItemsOnHomePage(){
+    let itemsContainerElement = document.querySelector('.items-container');
+    if (!itemsContainerElement){
+        return;
+    }
+    let innerHTML = '';
+    items.forEach(item => {
+        innerHTML += `
+        <div class="item-container">
+            <img class="item-image" src="${item.image}" alt="item image">
+            <div class="rating">
+                ${item.rating.stars} ⭐ | ${item.rating.count}
+            </div>
+            <div class="company_name">${item.company}</div>
+            <div class="item-name">${item.item_name}</div>
+            <div class="price">
+                <span class="current-price">Rs ${item.current_price}</span>
+                <span class="original-price">Rs ${item.original_price}</span>
+                <span class="discount">(${item.discount_percentage}% OFF)</span>
+            </div>
+            <button class="btn-add-bag" onclick="addToBag(${item.id})">Add to Bag</button>
+        </div>`;
+    });
+
+    itemsContainerElement.innerHTML = innerHTML;
+};
